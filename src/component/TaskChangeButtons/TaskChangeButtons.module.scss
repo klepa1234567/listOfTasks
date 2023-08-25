@@ -1,0 +1,12 @@
+.containerButton{
+  display: flex;
+  flex-direction: column;
+}
+.button{
+  height: 20px;
+  border: none;
+  background: none;
+  &:hover{
+    cursor: pointer;
+  }
+}
