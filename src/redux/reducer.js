@@ -3,13 +3,12 @@ import {
     TASK_DELETE,
     EDIT_TASK,
     MODIFYING_EXISTING_TASK,
-    ALL_TASKS_SERVER,
-
+    ALL_TASKS_SERVER, NAME_USER_FOR_TASK,
 } from "./action";
 
 const initialState = {
     task: [],
-    editTask: {}
+    editTask: {},
 };
 
 const tasksReducer = (state = initialState, action) => {
@@ -17,7 +16,7 @@ const tasksReducer = (state = initialState, action) => {
         case TASK_VALUE:
             return {
                ...state,
-               task: [...state.task, {name:action.task, id: action.id}],
+               task: [...state.task, {name:action.task, id: action.id, idUser: null}],
             };
         case TASK_DELETE:
             return {
@@ -48,6 +47,20 @@ const tasksReducer = (state = initialState, action) => {
                 ...state,
                 task: action.tasks
             };
+        case NAME_USER_FOR_TASK:
+            return {
+                ...state,
+                task: state.task.map((value) => {
+                    if(value.id === action.idTask){
+                        return{
+                            ...value,
+                            idUser: action.idUser
+                        }
+                    }
+                    return value;
+                })
+            }
+
 
         default:
             return state

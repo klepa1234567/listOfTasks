@@ -6,6 +6,7 @@ import {Provider} from 'react-redux';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import DetailedTask from './DetailedTask';
 import {rootReducer} from "./redux";
+import User from "./User";
 
 declare global {
     interface Window {
@@ -23,6 +24,7 @@ root.render(
             <Routes>
                 <Route path={'/'} element={<App />} />
                 <Route path={'/task/:id'} element={<DetailedTask/>}/>
+                <Route path={'/user'} element={<User/>} />
             </Routes>
         </BrowserRouter>
     </Provider>

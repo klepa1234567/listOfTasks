@@ -7,8 +7,7 @@ import {Link} from 'react-router-dom';
 import {allTasksServer} from './redux/action';
 import Spinner from './component/Spinner/spinner';
 import {ReduxState} from "./redux/type";
-import getTasks from './services/getTasks'
-
+import getTasks from './services/getTasks';
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -22,12 +21,10 @@ function App() {
 
     const selectedTasks = useSelector((state:ReduxState) => state.tasksReducer.task);
     const dispatch = useDispatch();
-    
     return (
         <div className={styles.App}>
             <div className={styles.categoryWrapper} >
-                <h3>задачи</h3>
-                <h3>пользователь</h3>
+                <Link to={`/user`}>пользователь</Link>
             </div>
             {loading ? <Spinner/> : (
                 <>

@@ -3,7 +3,8 @@ export const TASK_DELETE = 'TASK_DELETE';
 export const EDIT_TASK = 'EDIT_TASK';
 export const MODIFYING_EXISTING_TASK = 'MODIFYING_EXISTING_TASK';
 export const ALL_TASKS_SERVER = 'ALL_TASKS_SERVER';
-export const REMOVE_TASK_INPUT_DELETING = 'REMOVE_TASK_INPUT_DELETING';
+export const NAME_USER_FOR_TASK = 'NAME_USER_FOR_TASK';
+
 
 type TaskValueAction =(value: string, id: string) =>{
     type : string,
@@ -61,6 +62,21 @@ export const allTasksServer: AllTasksServer = (tasks) => {
         tasks
     }
 };
+
+type NameUserForTask = (idUser: string, idTask: string) => {
+    type: string,
+    idUser: string
+}
+
+export const nameUserForTask : NameUserForTask = (idUser, idTask) => {
+    return{
+        type: NAME_USER_FOR_TASK,
+        idUser,
+        idTask
+    }
+}
+
+
 
 
 

@@ -38,7 +38,7 @@ function Input() {
         }
 
           try {
-            const response = await createTask({name: value, id: taskId})
+            const response = await createTask({name: value, id: taskId, idUser: null})
             setButtonSpinner(false);
             setLoading(false);
             setError('');
